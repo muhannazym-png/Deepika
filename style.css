@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Playfair+Display:wght@300;400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+
+    background: linear-gradient(
+        -45deg,
+        #d8c7ff,
+        #f3c6d8,
+        #c8ddff,
+        #e8c8e8,
+        #c9e8df
+    );
+
+    background-size: 500% 500%;
+
+    animation: gradientMove 15s ease infinite;
+}
+
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =========================
+   START SCREEN
+========================= */
+
+.card-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+.start-card {
+
+    width: min(500px, 90vw);
+
+    padding: 65px 45px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.17);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 70px rgba(80, 40, 100, 0.15);
+
+    animation: cardAppear 1.5s ease;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.small-text {
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: 0.75;
+
+    margin-bottom: 25px;
+}
+
+
+.start-card h1 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(36px, 7vw, 58px);
+
+    font-weight: 300;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+
+.start-card p {
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.85;
+
+    margin-bottom: 35px;
+}
+
+
+button {
+
+    border: 1px solid rgba(255,255,255,0.6);
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    padding: 13px 32px;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+
+    font-weight: 300;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+}
+
+
+button:hover {
+
+    background: rgba(255,255,255,0.3);
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content {
+
+    display: none;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 100px 25px;
+}
+
+
+.main-content.show {
+
+    display: block;
+
+    animation: contentAppear 2s ease;
+}
+
+
+@keyframes contentAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    text-align: center;
+
+    margin-bottom: 110px;
+}
+
+
+.hello {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 12vw, 100px);
+
+    font-weight: 300;
+
+    margin-bottom: 30px;
+
+    opacity: 0;
+
+    animation: fadeUp 1.5s ease forwards;
+}
+
+
+.intro h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(27px, 5vw, 44px);
+
+    font-weight: 300;
+
+    line-height: 1.4;
+
+    opacity: 0;
+
+    animation: fadeUp 1.5s ease 0.4s forwards;
+}
+
+
+.line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: rgba(255,255,255,0.7);
+
+    margin: 35px auto;
+
+    opacity: 0;
+
+    animation: fadeUp 1.5s ease 0.8s forwards;
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   LETTERS
+========================= */
+
+.name-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 75px;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+
+.letter-block {
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.letter-block.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.letter {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(70px, 13vw, 110px);
+
+    font-weight: 300;
+
+    line-height: 0.9;
+
+    opacity: 0.95;
+}
+
+
+.word {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(25px, 5vw, 38px);
+
+    font-weight: 300;
+
+    margin-top: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+.typed-text {
+
+    min-height: 30px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.5px;
+
+    opacity: 0.8;
+
+    padding-left: 4px;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message {
+
+    text-align: center;
+
+    margin-top: 180px;
+
+    padding-bottom: 100px;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+}
+
+
+.final-message.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.final-name {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(65px, 14vw, 120px);
+
+    font-weight: 300;
+
+    margin-bottom: 35px;
+}
+
+
+.final-message p {
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    letter-spacing: 0.5px;
+
+    opacity: 0.9;
+
+    margin-bottom: 35px;
+}
+
+
+.final-heart {
+
+    font-size: 45px;
+
+    font-weight: 200;
+
+    margin: 35px 0;
+
+    animation: heartbeat 2s infinite ease-in-out;
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+.laugh-message {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px !important;
+
+    font-weight: 300;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .start-card {
+        padding: 50px 25px;
+    }
+
+    .main-content {
+        padding-top: 70px;
+    }
+
+    .name-section {
+        gap: 60px;
+    }
+
+    .typed-text {
+        font-size: 14px;
+    }
+
+}
